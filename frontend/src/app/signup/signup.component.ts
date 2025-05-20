@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-signup',
@@ -18,8 +19,8 @@ export class SignupComponent {
 
   constructor(private http: HttpClient) {}
 
-  signup() { 
-    this.http.post('http://localhost:3000/signup', {
+  signup() {
+    this.http.post(`${environment.apiBaseUrl}/signup`, {
       name: this.name,
       email: this.email,
       password: this.password
