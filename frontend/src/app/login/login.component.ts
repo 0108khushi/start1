@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent {
   constructor(private http: HttpClient) {}
 
   login() {
-    this.http.post('http://localhost:3000/login', {
+    this.http.post(`${environment.apiBaseUrl}/login`, {
       email: this.email,
       password: this.password
     }).subscribe({
